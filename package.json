@@ -1,0 +1,154 @@
+{
+  "name": "tortoise-git",
+  "displayName": "TortoiseGit",
+  "description": "TortoiseGit integration for VS Code — commit, push, pull, log, diff, blame, check for modifications, and more.",
+  "version": "0.1.0",
+  "publisher": "ludekvodicka",
+  "icon": "icon.png",
+  "license": "MIT",
+  "homepage": "https://github.com/ludekvodicka/vscode-tortoise-git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludekvodicka/vscode-tortoise-git"
+  },
+  "bugs": {
+    "url": "https://github.com/ludekvodicka/vscode-tortoise-git/issues"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      { "command": "workspace tortoise-git pull", "title": "Workspace: Git Pull" },
+      { "command": "workspace tortoise-git push", "title": "Workspace: Git Push" },
+      { "command": "workspace tortoise-git fetch", "title": "Workspace: Git Fetch" },
+      { "command": "workspace tortoise-git commit", "title": "Workspace: Git Commit" },
+      { "command": "workspace tortoise-git revert", "title": "Workspace: Git Revert" },
+      { "command": "workspace tortoise-git log", "title": "Workspace: Git Log" },
+      { "command": "workspace tortoise-git diff", "title": "Workspace: Git Diff" },
+      { "command": "workspace tortoise-git merge", "title": "Workspace: Git Merge" },
+      { "command": "workspace tortoise-git repostatus", "title": "Workspace: Git Check for Modifications" },
+      { "command": "workspace tortoise-git repobrowser", "title": "Workspace: Git Repository Browser" },
+      { "command": "workspace tortoise-git switch", "title": "Workspace: Git Switch/Checkout" },
+      { "command": "workspace tortoise-git resolve", "title": "Workspace: Git Resolve" },
+      { "command": "workspace tortoise-git stashsave", "title": "Workspace: Git Stash Save" },
+      { "command": "workspace tortoise-git stashpop", "title": "Workspace: Git Stash Pop" },
+      { "command": "workspace tortoise-git revisiongraph", "title": "Workspace: Git Revision Graph" },
+      { "command": "workspace tortoise-git tag", "title": "Workspace: Git Tag" },
+      { "command": "workspace tortoise-git branch", "title": "Workspace: Git Branch" },
+      { "command": "workspace tortoise-git rebase", "title": "Workspace: Git Rebase" },
+      { "command": "workspace tortoise-git cleanup", "title": "Workspace: Git Cleanup" },
+      { "command": "workspace tortoise-git reflog", "title": "Workspace: Git RefLog" },
+      { "command": "workspace tortoise-git refbrowse", "title": "Workspace: Git Browse References" },
+      { "command": "workspace tortoise-git settings", "title": "Workspace: Git Settings" },
+      { "command": "file tortoise-git commit", "title": "File: Git Commit" },
+      { "command": "file tortoise-git revert", "title": "File: Git Revert" },
+      { "command": "file tortoise-git log", "title": "File: Git Log" },
+      { "command": "file tortoise-git add", "title": "File: Git Add" },
+      { "command": "file tortoise-git blame", "title": "File: Git Blame" },
+      { "command": "file tortoise-git diff", "title": "File: Git Diff" },
+      { "command": "file tortoise-git repostatus", "title": "File: Git Check for Modifications" },
+      { "command": "file tortoise-git resolve", "title": "File: Git Resolve" },
+      { "command": "file tortoise-git rename", "title": "File: Git Rename" },
+      { "command": "file tortoise-git remove", "title": "File: Git Remove" },
+      { "command": "tortoise-git ...", "title": "Git ... (Select Action)" },
+      { "command": "tortoise-git ...(select path)", "title": "Git ... (Select Path)" },
+      { "command": "tortoise-git.ctx.pull", "title": "Pull" },
+      { "command": "tortoise-git.ctx.push", "title": "Push" },
+      { "command": "tortoise-git.ctx.commit", "title": "Commit" },
+      { "command": "tortoise-git.ctx.repostatus", "title": "Check for Modifications" },
+      { "command": "tortoise-git.ctx.log", "title": "Log" },
+      { "command": "tortoise-git.ctx.diff", "title": "Diff" },
+      { "command": "tortoise-git.ctx.revert", "title": "Revert" },
+      { "command": "tortoise-git.ctx.add", "title": "Add" },
+      { "command": "tortoise-git.ctx.stashsave", "title": "Stash Save" },
+      { "command": "tortoise-git.ctx.blame", "title": "Blame" },
+      { "command": "tortoise-git.ctx.workspace", "title": "Workspace Git ... (Select Action)" },
+      { "command": "tortoise-git.settings", "title": "TortoiseGit: Settings" }
+    ],
+    "submenus": [
+      {
+        "id": "tortoise-git.submenu",
+        "label": "TortoiseGit"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        { "submenu": "tortoise-git.submenu", "group": "navigation" }
+      ],
+      "editor/context": [
+        { "submenu": "tortoise-git.submenu", "group": "navigation" }
+      ],
+      "tortoise-git.submenu": [
+        { "command": "tortoise-git.ctx.pull", "group": "1_common@1" },
+        { "command": "tortoise-git.ctx.push", "group": "1_common@2" },
+        { "command": "tortoise-git.ctx.commit", "group": "1_common@3" },
+        { "command": "tortoise-git.ctx.repostatus", "group": "1_common@4" },
+        { "command": "tortoise-git.ctx.log", "group": "1_common@5" },
+        { "command": "tortoise-git.ctx.diff", "group": "1_common@6" },
+        { "command": "tortoise-git.ctx.revert", "group": "2_modify@1" },
+        { "command": "tortoise-git.ctx.add", "group": "2_modify@2" },
+        { "command": "tortoise-git.ctx.stashsave", "group": "2_modify@3" },
+        { "command": "tortoise-git.ctx.blame", "group": "2_modify@4" },
+        { "command": "tortoise-git ...", "group": "3_other@1" },
+        { "command": "tortoise-git.ctx.workspace", "group": "3_other@2" },
+        { "command": "tortoise-git.settings", "group": "4_settings@1" }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "TortoiseGit configuration",
+      "properties": {
+        "TortoiseGit.autoCloseUpdateDialog": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto close dialog when no errors, conflicts and merges."
+        },
+        "TortoiseGit.tortoiseGitProcExePath": {
+          "type": "string",
+          "default": "",
+          "description": "Specify the TortoiseGitProc.exe path when auto detect fails."
+        },
+        "TortoiseGit.showPath.exclude": {
+          "type": "array",
+          "default": [
+            "**/{node_modules,bower_components}/**"
+          ],
+          "description": "Glob patterns to exclude files and folders from path picker."
+        }
+      }
+    },
+    "keybindings": [
+      { "command": "workspace tortoise-git pull", "key": "alt+g u" },
+      { "command": "workspace tortoise-git push", "key": "alt+g p" },
+      { "command": "workspace tortoise-git commit", "key": "alt+g c" },
+      { "command": "workspace tortoise-git log", "key": "alt+g l" },
+      { "command": "workspace tortoise-git revert", "key": "alt+g r" },
+      { "command": "workspace tortoise-git diff", "key": "alt+g d" },
+      { "command": "workspace tortoise-git repostatus", "key": "alt+g f" },
+      { "command": "file tortoise-git log", "key": "alt+g l", "when": "editorFocus" },
+      { "command": "file tortoise-git revert", "key": "alt+g r", "when": "editorFocus" },
+      { "command": "file tortoise-git diff", "key": "alt+g d", "when": "editorFocus" },
+      { "command": "tortoise-git ...", "key": "alt+g s" },
+      { "command": "tortoise-git ...(select path)", "key": "alt+g m" }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npx tsc -p ./",
+    "compile": "npx tsc -p ./",
+    "watch": "npx tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/node": "^16.18.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "glob": "^7.0.6"
+  }
+}
